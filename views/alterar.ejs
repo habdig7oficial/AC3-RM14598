@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+        <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+<!-- CSS personalizada -->
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="logoff" onclick="window.location.href='/login'"><i class="bi bi-power"></i></div>
+        <h2 class="text-center">Lista de Atividades</h2>
+        <h2 class="text-center"><%=nome%></h2>
+        <div class="row">
+            <div class="col-md order-2">
+                <h2 class="text-center">Alterar</h2>
+                <form action="/alterar" method="POST" class="form-control">
+                    <input type="hidden" name="id_user" value="<%=id%>">
+                    <input type="hidden" name="id" value="<%=atividades._id%>">
+                    <input type="hidden" name="nome" value="<%=nome%>">
+                    <label for="" class="form-control text-bg-primary">Título da Atividade</label>
+                    <input type="text" name="titulo" id="" class="form-control"  value="<%=atividades.titulo%>" >
+                    <label for="" class="form-control text-bg-warning">Data de Entrega</label>
+                    <!--<input type="date" name="data" id="" class="form-control" value="<%=atividades.data.toString().slice(0,10)%>">-->
+                    <input type="date" name="data" id="" class="form-control" value="<%=atividades.data.toISOString().slice(0,10)%>" >
+                    <label for="" class="form-control text-bg-danger">Tipo:</label>
+                    <select name="tipo" id="" class="form-control">
+                      <option value="0">Selecione...</option>
+                      <option value="ac" <%=atividades.tipo == "ac"? "selected":"" %> >AC</option>
+                      <option value="at" <%=atividades.tipo == "at"? "selected":"" %>>AT</option>
+                      <option value="rec" <%=atividades.tipo == "rec"? "selected":"" %>>REC</option>
+                      <option value="exame"<%=atividades.tipo == "exame"? "selected":"" %> >Exame</option>
+                    </select>
+                    <label for="" class="form-control text-bg-secondary">Disciplina:</label>
+                    <select name="disciplina" id="" class="form-control">
+                      <option value="0" >Selecione...</option>
+                      <option value="bio" <%=atividades.disciplina == "bio"? "selected":"" %>>Biologia</option>
+                      <option value="lp2" <%=atividades.disciplina == "lp2"? "selected":"" %>>Linguagem de Programação</option>
+                      <option value="bd2" <%=atividades.disciplina == "bd2"? "selected":"" %>>Banco de Dados</option>
+                      <option value="inw" <%=atividades.disciplina == "inw"? "selected":"" %>>Internet Web</option>
+                    </select>
+
+<label for="" class="form-control text-bg-secondary">Formato de Entrega</label>
+<!--div class="input-group"-->
+    <input type="radio" value="Teams" name="entrega" id="" class="form-check-input" <%=atividades.entrega == "Teams"? "checked":"" %> >Tarefa no Teams
+    <input type="radio" value="Chat" name="entrega" id="" class="form-check-input" <%=atividades.entrega == "Chat"? "checked":"" %>>Chat no Teams
+    <input type="radio" value="Formulario" name="entrega" id="" class="form-check-input" <%=atividades.entrega == "Formulario"? "checked":"" %>>Forms
+    <input type="radio" value="email" name="entrega" id="" class="form-check-input" <%=atividades.entrega == "email"? "checked":"" %>>email
+    <input type="radio" value="Apresentacao" name="entrega" id="" class="form-check-input" <%=atividades.entrega == "Apresentacao"? "checked":"" %>>Apresentação
+    <label for="" class="form-control text-bg-secondary">Orientações</label>
+    <textarea name="orientacoes" id="" cols="30" rows="10" class="form-control" required>
+      <%=atividades.instrucoes%>
+    </textarea>
+  <div class="input-group">
+    <input type="button" value="Voltar" class="form-control btn btn-outline-success" onclick="history.back()">
+    <input type="submit" value="Alterar" class="form-control btn btn-danger">
+  </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <p><%=atividades%></p>
+    <p><%=atividades.data.toString().slice(0,10)%></p>
+    <p><%=atividades.data.getFullYear()%>-<%=atividades.data.getMonth()+1  %>-<%=atividades.data.getDate()+ 1%></p>
+
+</body>
+</html>

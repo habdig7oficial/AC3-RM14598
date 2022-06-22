@@ -78,7 +78,7 @@
                         <div class="accordion-body">
                             <% for( var n=0; n < dadosAberto.length;n++){%>
                                 <div class="card mt-3">
-                                <div class="card-header text-bg-warning d-flex "><% if (dadosAberto[n].alterado){%> <i class="bi bi-bookmark-plus"></i> <%}%> Data: <%=dadosAberto[n].data.getDate()+1%>-<%=dadosAberto[n].data.getMonth()+1%>-<%=dadosAberto[n].data.getFullYear()%> <% if(dadosAberto[n].data < Date.now() ){%> <p class="mx-2 fw-bold text-decoration-underline"> (ATRASADO) </p>  <%}%></div>
+                                <div class="card-header text-bg-warning d-flex "><% if (dadosAberto[n].alterado){%> <i class="bi bi-bookmark-plus"></i> <%}%> Data: <%=dadosAberto[n].data.getDate()%>-<%=dadosAberto[n].data.getMonth()+1%>-<%=dadosAberto[n].data.getFullYear()%> <% if(dadosAberto[n].data < Date.now() ){%> <p class="mx-2 fw-bold text-decoration-underline"> (ATRASADO) </p>  <%}%></div>
                                 <div class="card-body">
                                     <div class="card-title">Titulo: <%=dadosAberto[n].titulo%></div>
                                     <div class="card-subtitle">Entrega: <%=dadosAberto[n].entrega%></div>
@@ -113,7 +113,7 @@
                         <div class="accordion-body">
                           <% for( var n=0; n < dadosEntregue.length; n++){%>
                             <div class="card mt-3">
-                            <div class="card-header text-bg-success"><% if (dadosEntregue[n].alterado){%> <i class="bi bi-bookmark-plus"></i> <%}%> Data: <%=dadosEntregue[n].data.getDate() +1%>-<%=dadosEntregue[n].data.getMonth()+1%>-<%=dadosEntregue[n].data.getFullYear()%></div>
+                            <div class="card-header text-bg-success"><% if (dadosEntregue[n].alterado){%> <i class="bi bi-bookmark-plus"></i> <%}%> Data: <%=dadosEntregue[n].data.getDate()%>-<%=dadosEntregue[n].data.getMonth()+1%>-<%=dadosEntregue[n].data.getFullYear()%></div>
                             <div class="card-body">
                                 <div class="card-title">Titulo: <%=dadosEntregue[n].titulo%></div>
                                 <div class="card-subtitle">Entrega: <%=dadosEntregue[n].entrega%></div>
@@ -145,7 +145,7 @@
                         <div class="accordion-body">
                             <% for( var n=0; n<dadosExcluido.length;n++){%>
                                 <div class="card mt-3">
-                                <div class="card-header text-bg-danger "> <% if (dadosExcluido[n].alterado){%> <i class="bi bi-bookmark-plus"></i> <%}%> Data: <%=dadosExcluido[n].data.getDate()+1%>-<%=dadosExcluido[n].data.getMonth()+1%>-<%=dadosExcluido[n].data.getFullYear()%></div>
+                                <div class="card-header text-bg-danger "> <% if (dadosExcluido[n].alterado){%> <i class="bi bi-bookmark-plus"></i> <%}%> Data: <%=dadosExcluido[n].data.getDate()%>-<%=dadosExcluido[n].data.getMonth()+1%>-<%=dadosExcluido[n].data.getFullYear()%></div>
                                 <div class="card-body">
                                     <div class="card-title">Titulo: <%=dadosExcluido[n].titulo%></div>
                                     <div class="card-subtitle">Entrega: <%=dadosExcluido[n].entrega%></div>
